@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencia Interactiva de C++</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #333;
+        }
+        .code {
+            font-family: 'Fira Code', monospace;
+            background-color: #eef2f9;
+            color: #1e3a8a;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+        .nav-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-btn.active {
+            background-color: #0284c7;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .method-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-2">Referencia Interactiva de C++</h1>
+            <p class="text-slate-600">Una guía rápida de los contenedores y algoritmos más comunes de la STL.</p>
+        </header>
+
+        <div class="sticky top-0 z-10 bg-[#f8f7f4] py-4 mb-8">
+            <div class="relative mb-6">
+                <input type="search" id="searchInput" placeholder="Buscar un método o función (ej. push_back, sort...)" class="w-full p-3 pl-10 text-lg border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition">
+                <svg class="w-6 h-6 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+            </div>
+            
+            <nav class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-4">
+                <button data-target="vector" class="nav-btn p-3 font-bold text-slate-700 bg-white rounded-lg shadow-sm border border-slate-200 hover:bg-sky-100">Vector</button>
+                <button data-target="string" class="nav-btn p-3 font-bold text-slate-700 bg-white rounded-lg shadow-sm border border-slate-200 hover:bg-sky-100">String</button>
+                <button data-target="algorithm" class="nav-btn p-3 font-bold text-slate-700 bg-white rounded-lg shadow-sm border border-slate-200 hover:bg-sky-100">Algorithm</button>
+                <button data-target="deque" class="nav-btn p-3 font-bold text-slate-700 bg-white rounded-lg shadow-sm border border-slate-200 hover:bg-sky-100">Deque</button>
+                <button data-target="list" class="nav-btn p-3 font-bold text-slate-700 bg-white rounded-lg shadow-sm border border-slate-200 hover:bg-sky-100">List</button>
+            </nav>
+        </div>
+        
+        <main id="content-container">
+            <!-- Vector Content -->
+            <section id="vector" class="content-section">
+                <div class="p-6 bg-white rounded-lg shadow-sm border border-slate-200 mb-6">
+                    <h2 class="text-2xl font-bold text-sky-800 mb-2">std::vector</h2>
+                    <p class="text-slate-600">Un array dinámico que puede crecer y decrecer en tamaño. Sus elementos se almacenan de forma contigua en memoria, lo que permite un acceso aleatorio muy rápido. Es el contenedor secuencial de uso general más recomendado.</p>
+                </div>
+                <div id="vector-methods" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </section>
+
+            <!-- String Content -->
+            <section id="string" class="content-section">
+                <div class="p-6 bg-white rounded-lg shadow-sm border border-slate-200 mb-6">
+                    <h2 class="text-2xl font-bold text-sky-800 mb-2">std::string</h2>
+                    <p class="text-slate-600">Una clase que gestiona secuencias de caracteres. Proporciona una forma mucho más segura y flexible de trabajar con texto en comparación con los arrays de caracteres de C. Se encarga automáticamente de la gestión de memoria.</p>
+                </div>
+                <div id="string-methods" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </section>
+
+            <!-- Algorithm Content -->
+            <section id="algorithm" class="content-section">
+                 <div class="p-6 bg-white rounded-lg shadow-sm border border-slate-200 mb-6">
+                    <h2 class="text-2xl font-bold text-sky-800 mb-2">&lt;algorithm&gt;</h2>
+                    <p class="text-slate-600">Una librería que contiene una colección de funciones para operar sobre rangos de elementos. Estos algoritmos proporcionan una forma potente y genérica de realizar operaciones comunes como búsqueda, ordenamiento, conteo y manipulación de secuencias.</p>
+                </div>
+                <div id="algorithm-methods" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </section>
+
+            <!-- Deque Content -->
+            <section id="deque" class="content-section">
+                <div class="p-6 bg-white rounded-lg shadow-sm border border-slate-200 mb-6">
+                    <h2 class="text-2xl font-bold text-sky-800 mb-2">std::deque</h2>
+                    <p class="text-slate-600">Una "cola de dos extremos" (double-ended queue). Permite inserciones y eliminaciones rápidas tanto al principio como al final. A diferencia del vector, no almacena sus elementos de forma contigua, lo que lo hace más flexible para crecer en ambos extremos.</p>
+                </div>
+                <div id="deque-methods" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </section>
+
+            <!-- List Content -->
+            <section id="list" class="content-section">
+                 <div class="p-6 bg-white rounded-lg shadow-sm border border-slate-200 mb-6">
+                    <h2 class="text-2xl font-bold text-sky-800 mb-2">std::list</h2>
+                    <p class="text-slate-600">Una lista doblemente enlazada. Su principal ventaja es que la inserción y eliminación de elementos en *cualquier* parte de la lista es extremadamente rápida (tiempo constante), pero no permite el acceso aleatorio a elementos por índice (no se puede usar `list[i]`).</p>
+                </div>
+                <div id="list-methods" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </section>
+            
+            <div id="no-results" class="text-center py-16 hidden">
+                <p class="text-2xl font-bold text-slate-500">No se encontraron resultados</p>
+                <p class="text-slate-400 mt-2">Intenta con otro término de búsqueda.</p>
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = {
+                vector: {
+                    'Modificadores': [
+                        { name: 'assign', params: '(count, value) | (first, last)', desc: 'Asigna nuevos elementos, reemplazando los actuales.' },
+                        { name: 'push_back', params: '(value)', desc: 'Añade un elemento al final.' },
+                        { name: 'pop_back', params: 'Ninguno', desc: 'Elimina el último elemento.' },
+                        { name: 'insert', params: '(pos, value) | ...', desc: 'Inserta elementos en una posición específica.' },
+                        { name: 'erase', params: '(pos) | (first, last)', desc: 'Elimina elementos en una posición o rango.' },
+                        { name: 'swap', params: '(other)', desc: 'Intercambia el contenido con otro vector.' },
+                        { name: 'clear', params: 'Ninguno', desc: 'Elimina todos los elementos.' },
+                        { name: 'emplace', params: '(pos, args...)', desc: 'Construye un elemento "in situ" en una posición.' },
+                        { name: 'emplace_back', params: '(args...)', desc: 'Construye un elemento "in situ" al final.' },
+                        { name: 'resize', params: '(new_size) | ...', desc: 'Cambia el tamaño del vector.' },
+                    ],
+                    'Acceso a Elementos': [
+                        { name: 'at', params: '(pos)', desc: 'Accede a un elemento con verificación de límites.' },
+                        { name: 'operator[]', params: '(pos)', desc: 'Accede a un elemento sin verificación de límites.' },
+                        { name: 'front', params: 'Ninguno', desc: 'Accede al primer elemento.' },
+                        { name: 'back', params: 'Ninguno', desc: 'Accede al último elemento.' },
+                        { name: 'data', params: 'Ninguno', desc: 'Devuelve un puntero al array subyacente.' },
+                    ],
+                    'Iteradores': [
+                        { name: 'begin / end', params: 'Ninguno', desc: 'Iteradores para recorrer el vector.' },
+                        { name: 'rbegin / rend', params: 'Ninguno', desc: 'Iteradores inversos.' },
+                        { name: 'cbegin / cend', params: 'Ninguno', desc: 'Iteradores constantes.' },
+                    ],
+                    'Capacidad': [
+                        { name: 'empty', params: 'Ninguno', desc: 'Comprueba si el vector está vacío.' },
+                        { name: 'size', params: 'Ninguno', desc: 'Devuelve el número de elementos.' },
+                        { name: 'max_size', params: 'Ninguno', desc: 'Devuelve el tamaño máximo posible.' },
+                        { name: 'reserve', params: '(new_cap)', desc: 'Reserva capacidad de almacenamiento.' },
+                        { name: 'capacity', params: 'Ninguno', desc: 'Devuelve la capacidad actual.' },
+                        { name: 'shrink_to_fit', params: 'Ninguno', desc: 'Reduce la capacidad para que coincida con el tamaño.' },
+                    ]
+                },
+                string: {
+                    'Modificadores': [
+                        { name: 'operator=', params: '(str) | (char*) | (char)', desc: 'Asigna un nuevo valor al string.' },
+                        { name: 'assign', params: '(count, char) | (str) | ...', desc: 'Asigna un nuevo valor, reemplazando el contenido.' },
+                        { name: 'append', params: '(str) | (count, char) | ...', desc: 'Añade caracteres al final.' },
+                        { name: 'operator+=', params: '(str) | (char*) | (char)', desc: 'Añade caracteres al final (sobrecarga).' },
+                        { name: 'push_back', params: '(char)', desc: 'Añade un carácter al final.' },
+                        { name: 'pop_back', params: 'Ninguno', desc: 'Elimina el último carácter.' },
+                        { name: 'insert', params: '(index, str) | (pos, str) | ...', desc: 'Inserta caracteres en una posición.' },
+                        { name: 'erase', params: '(index, count) | (pos)', desc: 'Elimina caracteres de la cadena.' },
+                        { name: 'replace', params: '(pos, count, str) | ...', desc: 'Reemplaza una porción del string.' },
+                        { name: 'swap', params: '(other)', desc: 'Intercambia el contenido con otro string.' },
+                        { name: 'clear', params: 'Ninguno', desc: 'Borra todo el contenido del string.' },
+                    ],
+                    'Acceso a Elementos': [
+                        { name: 'at', params: '(pos)', desc: 'Accede a un carácter con verificación de límites.' },
+                        { name: 'operator[]', params: '(pos)', desc: 'Accede a un carácter sin verificación de límites.' },
+                        { name: 'front', params: 'Ninguno', desc: 'Accede al primer carácter.' },
+                        { name: 'back', params: 'Ninguno', desc: 'Accede al último carácter.' },
+                        { name: 'data', params: 'Ninguno', desc: 'Puntero a los datos (no necesariamente terminado en nulo).' },
+                        { name: 'c_str', params: 'Ninguno', desc: 'Puntero a un array de caracteres terminado en nulo.' },
+                    ],
+                    'Capacidad': [
+                        { name: 'empty', params: 'Ninguno', desc: 'Comprueba si el string está vacío.' },
+                        { name: 'size / length', params: 'Ninguno', desc: 'Devuelve el número de caracteres.' },
+                        { name: 'max_size', params: 'Ninguno', desc: 'Devuelve el tamaño máximo posible.' },
+                        { name: 'reserve', params: '(new_cap)', desc: 'Reserva capacidad de almacenamiento.' },
+                        { name: 'capacity', params: 'Ninguno', desc: 'Devuelve la capacidad actual.' },
+                        { name: 'shrink_to_fit', params: 'Ninguno', desc: 'Reduce la capacidad para que coincida con el tamaño.' },
+                    ],
+                    'Operaciones': [
+                        { name: 'substr', params: '(pos, count)', desc: 'Devuelve una subcadena.' },
+                        { name: 'copy', params: '(dest, count, pos)', desc: 'Copia caracteres a un array de C.' },
+                        { name: 'resize', params: '(count) | (count, char)', desc: 'Cambia el número de caracteres almacenados.' },
+                        { name: 'find', params: '(str, pos) | (char, pos)', desc: 'Busca la primera ocurrencia de una subcadena/carácter.' },
+                        { name: 'rfind', params: '(str, pos) | (char, pos)', desc: 'Busca la última ocurrencia de una subcadena/carácter.' },
+                        { name: 'find_first_of', params: '(str, pos) | (char, pos)', desc: 'Busca el primer carácter que coincida con cualquiera en el argumento.' },
+                        { name: 'find_last_of', params: '(str, pos) | (char, pos)', desc: 'Busca el último carácter que coincida con cualquiera en el argumento.' },
+                        { name: 'find_first_not_of', params: '(str, pos) | (char, pos)', desc: 'Busca el primer carácter que NO coincida con ninguno en el argumento.' },
+                        { name: 'find_last_not_of', params: '(str, pos) | (char, pos)', desc: 'Busca el último carácter que NO coincida con ninguno en el argumento.' },
+                        { name: 'compare', params: '(str) | (pos, count, str) | ...', desc: 'Compara el string con otro.' },
+                    ]
+                },
+                algorithm: {
+                    'Operaciones que no modifican': [
+                        { name: 'all_of, any_of, none_of', params: '(range, pred)', desc: 'Verifican si todos, alguno o ninguno cumplen un predicado.' },
+                        { name: 'for_each', params: '(range, f)', desc: 'Aplica una función a cada elemento.' },
+                        { name: 'find, find_if, find_if_not', params: '(range, value|pred)', desc: 'Buscan un elemento.' },
+                        { name: 'count, count_if', params: '(range, value|pred)', desc: 'Cuentan ocurrencias.' },
+                        { name: 'equal', params: '(range1, range2)', desc: 'Compara si dos rangos son iguales.' },
+                        { name: 'search', params: '(range, sub_range)', desc: 'Busca una subsecuencia.' },
+                    ],
+                    'Operaciones que modifican': [
+                        { name: 'copy, copy_if', params: '(src_range, dest, pred)', desc: 'Copia elementos.' },
+                        { name: 'move', params: '(src_range, dest)', desc: 'Mueve elementos.' },
+                        { name: 'transform', params: '(range, dest, op)', desc: 'Aplica una operación a un rango.' },
+                        { name: 'replace, replace_if', params: '(range, old, new)', desc: 'Reemplaza elementos.' },
+                        { name: 'fill', params: '(range, value)', desc: 'Rellena un rango con un valor.' },
+                        { name: 'generate', params: '(range, g)', desc: 'Genera valores para un rango.' },
+                        { name: 'remove, remove_if', params: '(range, value|pred)', desc: 'Mueve elementos a eliminar al final.' },
+                        { name: 'unique', params: '(range)', desc: 'Elimina duplicados consecutivos.' },
+                        { name: 'reverse', params: '(range)', desc: 'Invierte el orden de un rango.' },
+                        { name: 'rotate', params: '(range, middle)', desc: 'Rota los elementos de un rango.' },
+                        { name: 'shuffle', params: '(range, g)', desc: 'Reordena aleatoriamente.' },
+                    ],
+                    'Ordenamiento y Búsqueda': [
+                        { name: 'sort, stable_sort', params: '(range, comp)', desc: 'Ordena un rango.' },
+                        { name: 'is_sorted', params: '(range)', desc: 'Comprueba si un rango está ordenado.' },
+                        { name: 'binary_search', params: '(range, value)', desc: 'Busca en un rango ordenado.' },
+                        { name: 'lower_bound, upper_bound', params: '(range, value)', desc: 'Encuentra límites en un rango ordenado.' },
+                    ],
+                    'Mínimos y Máximos': [
+                        { name: 'min, max, minmax', params: '(a, b) | {list}', desc: 'Obtiene el mínimo, máximo o ambos.' },
+                        { name: 'min_element, max_element', params: '(range)', desc: 'Iterador al elemento mínimo o máximo.' },
+                    ]
+                },
+                deque: {
+                    'Modificadores': [
+                        { name: 'push_front', params: '(value)', desc: '✨ Añade un elemento al principio.' },
+                        { name: 'pop_front', params: 'Ninguno', desc: '✨ Elimina el primer elemento.' },
+                        { name: 'push_back', params: '(value)', desc: 'Añade un elemento al final.' },
+                        { name: 'pop_back', params: 'Ninguno', desc: 'Elimina el último elemento.' },
+                        { name: 'insert', params: '(pos, value) | ...', desc: 'Inserta elementos.' },
+                        { name: 'erase', params: '(pos) | (first, last)', desc: 'Elimina elementos.' },
+                        { name: 'swap', params: '(other)', desc: 'Intercambia el contenido.' },
+                        { name: 'clear', params: 'Ninguno', desc: 'Elimina todos los elementos.' },
+                        { name: 'emplace_front', params: '(args...)', desc: 'Construye "in situ" al principio.' },
+                        { name: 'emplace_back', params: '(args...)', desc: 'Construye "in situ" al final.' },
+                        { name: 'resize', params: '(new_size) | ...', desc: 'Cambia el tamaño.' },
+                    ],
+                    'Acceso a Elementos': [
+                        { name: 'at', params: '(pos)', desc: 'Accede con verificación de límites.' },
+                        { name: 'operator[]', params: '(pos)', desc: 'Accede sin verificación de límites.' },
+                        { name: 'front', params: 'Ninguno', desc: 'Accede al primer elemento.' },
+                        { name: 'back', params: 'Ninguno', desc: 'Accede al último elemento.' },
+                    ],
+                    'Capacidad': [
+                        { name: 'empty', params: 'Ninguno', desc: 'Comprueba si está vacío.' },
+                        { name: 'size', params: 'Ninguno', desc: 'Devuelve el número de elementos.' },
+                        { name: 'shrink_to_fit', params: 'Ninguno', desc: 'Reduce la capacidad.' },
+                    ]
+                },
+                list: {
+                    'Modificadores': [
+                        { name: 'push_front', params: '(value)', desc: 'Añade un elemento al principio.' },
+                        { name: 'pop_front', params: 'Ninguno', desc: 'Elimina el primer elemento.' },
+                        { name: 'push_back', params: '(value)', desc: 'Añade un elemento al final.' },
+                        { name: 'pop_back', params: 'Ninguno', desc: 'Elimina el último elemento.' },
+                        { name: 'insert', params: '(pos, value) | ...', desc: 'Inserta elementos.' },
+                        { name: 'erase', params: '(pos) | (first, last)', desc: 'Elimina elementos.' },
+                        { name: 'swap', params: '(other)', desc: 'Intercambia el contenido.' },
+                        { name: 'clear', params: 'Ninguno', desc: 'Elimina todos los elementos.' },
+                    ],
+                    'Acceso a Elementos': [
+                        { name: 'front', params: 'Ninguno', desc: 'Accede al primer elemento.' },
+                        { name: 'back', params: 'Ninguno', desc: 'Accede al último elemento.' },
+                    ],
+                    'Operaciones Específicas': [
+                        { name: 'splice', params: '(pos, other, ...)', desc: '✨ Transfiere elementos desde otra lista.' },
+                        { name: 'remove', params: '(value)', desc: 'Elimina todas las ocurrencias de un valor.' },
+                        { name: 'remove_if', params: '(pred)', desc: 'Elimina elementos si cumplen un predicado.' },
+                        { name: 'unique', params: '', desc: 'Elimina duplicados consecutivos.' },
+                        { name: 'merge', params: '(other)', desc: 'Fusiona otra lista ordenada.' },
+                        { name: 'sort', params: '', desc: 'Ordena la lista.' },
+                        { name: 'reverse', params: '', desc: 'Invierte el orden de la lista.' },
+                    ]
+                }
+            };
+
+            const createCard = (item) => {
+                const card = document.createElement('div');
+                card.className = 'method-card bg-white p-4 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1';
+                card.dataset.search = `${item.name.toLowerCase()} ${item.desc.toLowerCase()}`;
+                
+                card.innerHTML = `
+                    <h4 class="font-bold text-slate-800 text-lg"><span class="code">${item.name}</span></h4>
+                    <p class="text-sm text-slate-500 mb-2">${item.params}</p>
+                    <p class="text-slate-700">${item.desc}</p>
+                `;
+                return card;
+            };
+
+            const renderContent = () => {
+                for (const container in data) {
+                    const containerDiv = document.getElementById(`${container}-methods`);
+                    if (!containerDiv) continue;
+                    
+                    containerDiv.innerHTML = ''; // Clear previous content
+                    
+                    for (const category in data[container]) {
+                        const categoryHeader = document.createElement('h3');
+                        categoryHeader.className = 'text-xl font-semibold text-slate-700 mt-6 mb-3 md:col-span-2 lg:col-span-3';
+                        categoryHeader.textContent = category;
+                        categoryHeader.dataset.search = `category:${category.toLowerCase()}`;
+                        containerDiv.appendChild(categoryHeader);
+
+                        data[container][category].forEach(item => {
+                            containerDiv.appendChild(createCard(item));
+                        });
+                    }
+                }
+            };
+            
+            renderContent();
+
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+            const searchInput = document.getElementById('searchInput');
+            const noResultsDiv = document.getElementById('no-results');
+
+            const switchTab = (targetId) => {
+                navButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.target === targetId);
+                });
+                contentSections.forEach(section => {
+                    section.classList.toggle('active', section.id === targetId);
+                });
+            };
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    switchTab(button.dataset.target);
+                });
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                document.querySelectorAll('.method-card, h3[data-search^="category:"]').forEach(el => {
+                    const isVisible = el.dataset.search.includes(searchTerm);
+                    el.style.display = isVisible ? '' : 'none';
+                    if (isVisible && el.classList.contains('method-card')) {
+                        visibleCount++;
+                    }
+                });
+                
+                 // Hide empty categories
+                document.querySelectorAll('#content-container h3').forEach(header => {
+                    let nextElement = header.nextElementSibling;
+                    let hasVisibleCards = false;
+                    while(nextElement && !nextElement.matches('h3')){
+                        if(nextElement.matches('.method-card') && nextElement.style.display !== 'none'){
+                            hasVisibleCards = true;
+                            break;
+                        }
+                        nextElement = nextElement.nextElementSibling;
+                    }
+                    header.style.display = hasVisibleCards ? '' : 'none';
+                });
+
+                noResultsDiv.classList.toggle('hidden', visibleCount > 0);
+            });
+
+            // Set initial state
+            switchTab('vector');
+        });
+    </script>
+</body>
+</html>
