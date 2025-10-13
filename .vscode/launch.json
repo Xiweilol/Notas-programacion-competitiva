@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compilar C++ (g++)",
+      "type": "shell",
+      "command": "C:/mingw64/bin/x86_64-w64-mingw32-g++.exe",
+      "args": [
+        "-std=c++23",
+        "-O2",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
