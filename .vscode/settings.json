@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "bitset": "cpp",
+        "flat_map": "cpp",
+        "format": "cpp"
+    }
+}
