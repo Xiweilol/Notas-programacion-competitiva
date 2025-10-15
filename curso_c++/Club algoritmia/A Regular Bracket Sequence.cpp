@@ -15,22 +15,26 @@ int main(){
         }
 
         stack <char> pila;
-
+        int cnt = 0;
         for(char& c: s){
             if(c == '(' || c == '?'){
                 pila.push(c);
-            } else if(c == ')') {
-                if((pila.top() == '(' || pila.top() == '?')){
+            }
+
+            if(c == ')'){
+                if(pila.top() == '(' || pila.top() == '?'){
                     pila.pop();
                 }
-
+                else {
+                    break;
+                }
             }
         }
 
-        if(pila.empty()){
+        if(pila.empty() || pila.size() % 2 == 0){
             cout << "YES\n";
         } else {
-            cout << "NO\n";
+            cout << "No\n";
         }
 
     }
