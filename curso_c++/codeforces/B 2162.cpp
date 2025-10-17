@@ -10,14 +10,22 @@ int main(){
 
         string s; cin >> s;
 
-        cout << 2 << "\n";
+        vector <int> arr;
 
-        for(int i = 1; i < n; i++){
-            if(s[i] == '1' && s[i-1] == '0'){
-                cout << i << " " << i + 1 << "\n";
-                break;
+        for(int i = 0; i < n; i++){
+            if(s[i] == '1'){
+                //para la posicion
+                arr.push_back(i);
             }
         }
+
+        cout << arr.size() << "\n";
+
+        for(int n : arr){
+            cout << n + 1 << " ";
+        }
+
+        cout << "\n";
     }
 
     return 0;
