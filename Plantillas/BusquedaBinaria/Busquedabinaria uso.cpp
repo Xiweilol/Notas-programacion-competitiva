@@ -81,6 +81,30 @@ T last_true(T lo, T hi, F ok) { // busca máximo x ∈ [lo, hi] con ok(x)=true
     return ans;
 }
 
+// Busca el mínimo x ∈ [lo, hi) que cumple ok(x) = true
+// Si no existe ninguno, devuelve hi (fuera del rango)
+template <class T, class F>
+T first_true(T lo, T hi, F ok) {
+    while (lo < hi) {
+        T mid = lo + (hi - lo) / 2; // sesgo hacia abajo
+        if (ok(mid)) hi = mid;      // puede ser respuesta o algo menor
+        else lo = mid + 1;          // necesitamos más grande
+    }
+    return lo; // lo == hi, y es el primer true
+}
+
+// Busca el máximo x ∈ [lo, hi) que cumple ok(x) = true
+// Si no existe ninguno, devuelve lo - 1
+template <class T, class F>
+T last_true(T lo, T hi, F ok) {
+    while (lo < hi) {
+        T mid = lo + (hi - lo + 1) / 2; // sesgo hacia arriba
+        if (ok(mid)) lo = mid;          // todavía sirve, subimos
+        else hi = mid - 1;              // nos pasamos, bajamos
+    }
+    return lo; // lo == hi, último válido
+}
+
 /*======================
   Binary Search en reales (doble)
   - Usa iteraciones fijas para precisión (1e-9 aprox con 100 iters)
