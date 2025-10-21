@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int getXorRange(const vector<int>& px, int l, int r) {
+    // Si l == 0, solo se usa px[r]; si no, se usa px[r] ^ px[l-1]
+    return px[r] ^ (l ? px[l - 1] : 0);
+}
+
 int main() {
     vector<int> arr = {2, 4, 5, 7};
     int n = arr.size();
