@@ -1,5 +1,5 @@
 // Autor: Mintwi
-// Fecha: 2025-10-22
+// Fecha: 2025-10-23
 
 #include <bits/stdc++.h>
 using namespace std;
