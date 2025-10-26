@@ -12,14 +12,17 @@ int main(){
     while(t--){
         int n; cin >> n;
 
+        
         long long sum = 0;
 
         for(int i = 0; i < n; i++){
             int a; cin >> a;
-            a = abs(a);
             sum += a;
         }
-
+        if(sum <= 0 || sum < n){
+            cout << 1 << "\n";
+            continue;
+        }
         cout << sum - n << "\n";
 
     }
