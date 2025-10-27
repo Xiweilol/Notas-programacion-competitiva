@@ -18,18 +18,19 @@ int main(){
         for(int i = 1; i <= 8; i++){
             if(pos == i){
                 continue;
-            } else if(letra == cadena[i]){
-                cout << letra << i << "\n";
-                if(i == 8){
-                    break;
-                }
-                cout << cadena[i+1] << pos << "\n";
-                continue;
             }
-            cout << letra << i << "\n";
-            cout << cadena[i] << pos << "\n";
+
+            cout << letra << i << " ";
         }
 
+        for(int i = 1; i <= 8; i++){
+            if(cadena[i] == letra){
+                continue;
+            }
+
+            cout << cadena[i] << pos << " ";
+        }
+        cout << "\n";
     }
 
     return 0;
