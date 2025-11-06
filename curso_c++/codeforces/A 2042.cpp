@@ -12,30 +12,27 @@ int main(){
     while(t--){
         int n,k; cin >> n >> k;
 
-        vector <int> arr(n+1,0);
+        vector <int> arr(n);
 
-        for(int i = 1; i <= n; i++){
+        for(int i = 0; i < n; i++){
             cin >> arr[i];
         }
 
         sort(arr.rbegin(),arr.rend());
 
-        vector <long long> prefix(n+1);
+        long long ans = 0;
+        long long sum = 0;
+        for(int i = 0; i < n; i++){
+            sum += arr[i];
 
-        for(int i = 1; i <= n; i++){
-            prefix[i] = prefix[i-1] + arr[i];
-        }
-
-        int ans = 0;
-        for(int i = 1; i <= n; i++){
-            if(prefix[i] > k){
-                ans = k - prefix[i-1];
-
+            if(sum <= k){
+                ans = sum;
+            } else {
                 break;
             }
         }
 
-        cout << ans << "\n";
+        cout << k - ans << "\n";
 
     }
 
