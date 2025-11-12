@@ -26,13 +26,13 @@ int main(){
         }
 
         sort(a.begin(),a.end());
-
         sort(b.begin(),b.end());
 
         ll sum = 0;
         for(int i = 0; i < n; i++){
             sum += a[i];
         }
+        
         ll position = n;
 
         for(int i = 0; i < k; i++){
