@@ -3,6 +3,7 @@
         "bitset": "cpp",
         "flat_map": "cpp",
         "format": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     }
 }
