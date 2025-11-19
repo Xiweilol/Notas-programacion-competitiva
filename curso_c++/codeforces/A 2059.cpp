@@ -14,8 +14,8 @@ int main(){
 
         int n; cin >> n;
 
-        set <int> a;
-        set <int> b;
+        set <ll> a;
+        set <ll> b;
 
         for(int i = 0; i < n; i++){
             int x; cin >> x;
@@ -27,9 +27,9 @@ int main(){
             b.insert(y);
         }
 
-        if(a.size() >= 3){
+        if(a.size() >= 3 || b.size() >= 3){
             cout << "YES\n";
-        } else if( a.size() < 3 && b.size() >= 2){
+        } else if(a.size() == 2 && b.size() == 2){
             cout << "YES\n";
         } else {
             cout << "NO\n";
