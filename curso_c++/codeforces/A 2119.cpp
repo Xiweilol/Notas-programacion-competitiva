@@ -5,30 +5,42 @@
 #define ll long long
 using namespace std;
 
-int main(){
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t; cin >> t;
-    while(t--){
-        int a,b;
-        cin >> a >> b;
+    int t; 
+    cin >> t;
+    while (t--) {
+        int a, b;
+        ll x, y;
+        cin >> a >> b >> x >> y;
 
-        ll x,y;
-        cin >> x >> y;
-        if((!(a&1) && a == b+1) || (a >= b + 2) ){
-            cout << -1 << "\n";
+        if (a == b) {
+            cout << 0 << "\n";
             continue;
         }
 
-        int need = b - a;
-        int par = need / 2, impar = par;
-
-        if(need & 1){
-            impar++;    
+        // Caso b < a
+        if (b < a) {
+            if ((a ^ 1) == b) cout << y << "\n";
+            else cout << -1 << "\n";
+            continue;
         }
 
-        cout << par * x + impar * y << "\n";
+        int d = b - a;
+        ll mn = min(x, y);
+        ll lf = d / 2;         // floor(d/2)
+        ll lc = (d + 1) / 2;   // ceil(d/2)
+
+        ll ans;
+        if (a % 2 == 0) { // a par
+            ans = lc * mn + lf * x;
+        } else {          // a impar
+            ans = lf * mn + lc * x;
+        }
+
+        cout << ans << "\n";
     }
 
     return 0;
