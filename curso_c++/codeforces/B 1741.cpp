@@ -20,21 +20,23 @@ int main(){
             continue;
         }
         int temp = n;
+        int pos = 0;
         for(int i = 1; i <= n; i++){
             
             arr[i] = temp;
             temp--;
-            
+            if(temp == i+1){
+                pos = temp;
+            }
+        }   
+
+        if(n & 1){
+            reverse(arr.begin() + pos,arr.end());
         }
 
         for(int i = 1; i <= n; i++){
-            if(arr[i] == i){
-                swap(arr[i],arr[i+1]);
-            }
-
             cout << arr[i] << " ";
         }
-
 
         cout << "\n";
     }
