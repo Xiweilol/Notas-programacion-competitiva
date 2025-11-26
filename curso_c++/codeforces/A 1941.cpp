@@ -16,24 +16,25 @@ int main(){
         vector <int> b(n);
         vector <int> c(m);
 
-        int cntA = 0;
-        int cntB = 0;
+
         for(int i = 0; i < n; i++){
             cin >> b[i];
-            if(b[i] < k){
-                cntA++;
-            }
         }
 
         for(int i = 0; i < m; i++){
             cin >> c[i];
-            if(c[i] < k){
-                cntB++;
-            }
         }
 
-        cout << cntA * cntB << "\n";
+        int ans = 0;
+        sort(c.begin(),c.end());
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(b[i] + c[j] <= k) ans++;
+                else break;
+            }
+        }
         
+        cout << ans << "\n";
     }
 
     return 0;
