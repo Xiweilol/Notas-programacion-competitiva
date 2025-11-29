@@ -13,26 +13,31 @@ int main(){
         int n; cin >> n;
 
         set <int> S;
-
+        map <int,int> freq;
         for(int i = 0; i < n; i++){
             int l; cin >> l;
 
             S.insert(l);
+
+            freq[l]++;
         }
 
         vector <int> arr(S.begin(),S.end());
 
         bool pas = true;
-        if(arr.size() == 1){
+
+
+        if(arr.size() == 1 || freq.find(0) == freq.end()){
             if(arr[0] == 0){
                 cout << "YES\n";
             } else {
                 cout << "NO\n";
             }
+
             continue;
         }
         for(int i = 1; i < arr.size(); i++){
-            if(arr[i] != arr[i-1]+1){
+            if((arr[i] != arr[i-1]+1) || freq[arr[i]] > freq[arr[i-1]]){
                 pas = false;
                 break;
             }
