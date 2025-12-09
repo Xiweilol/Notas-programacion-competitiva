@@ -58,5 +58,5 @@ int main(){
     int n = v.size();
     build(0,n-1,0,v);
 
-    cout << query(0,n-1,3,5,0) << "\n";
+    cout << query(0,n-1,2,4,0) << "\n";
 }
