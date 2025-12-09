@@ -49,7 +49,7 @@ int query(int l, int r, int a,int b, int i){
     if(a <= l & r <= b) return st[i];
     int m = (l + r) / 2;
 
-    return query(l,m,a,b,2*i*+1) + query(m+1,r,a,b,2*i+2);
+    return query(l,m,a,b,2*i+1) + query(m+1,r,a,b,2*i+2);
 }
 
 
