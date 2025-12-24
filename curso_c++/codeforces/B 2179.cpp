@@ -19,18 +19,24 @@ int main(){
             cin >> a[i];
         }
 
-        int maximo = *max_element(a.begin(),a.end());
-
-        a.erase(remove(a.begin(),a.end(),maximo),a.end());
-
         ll sum = 0;
-
-        int sizes = a.size();
-        for(int i = 0; i < sizes-1; i++){
-            sum += abs(a[i] - a[i+1]);
+        for(int i = 1; i < n; i++){
+            sum += abs(a[i] - a[i-1]);
         }
 
-        cout << sum << "\n";
+        ll ans = INT_MAX;
+
+
+        //suponiendo que quitamos un elemento del principio y del final
+        //ahora le asignamos eso al resultao, a ver quien es menor
+        ans = min(sum - abs(a[1] - a[0]), sum - abs(a[n-1] - a[n-2]));
+
+        //iteramos desde la posicion 1 hasta n-2, son los de la mitad
+        for(int i = 1; i + 1 < n; i++){
+            ans = min(ans,(sum - abs(a[i] - a[i-1]) - abs(a[i+1] - a[i]) + abs(a[i-1] - a[i+1])));
+        }
+
+        cout << ans << "\n";
     }
 
     return 0;
