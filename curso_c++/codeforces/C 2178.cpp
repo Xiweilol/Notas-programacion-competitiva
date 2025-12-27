@@ -1,6 +1,5 @@
 // Autor: Mintwi (style)
-// Solución O(n) por test
-// Idea: DP con mejor valor "best" = max(dp[i] + a[i] + pref[i])
+// VERSION CHAT, no supe como implementar la solucion por DP xd
 #include <bits/stdc++.h>
 using namespace std;
 
