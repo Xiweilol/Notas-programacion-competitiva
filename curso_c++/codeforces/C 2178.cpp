@@ -5,6 +5,7 @@
 typedef long long ll;
 using namespace std;
 
+/*copiado desde Petr*/
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
