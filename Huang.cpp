@@ -5,11 +5,9 @@ using namespace std;
 
 int main() {
 
-    vector <int> a = {1, 2, 3, 4, 5, 4, 1, 4, 1, 5, 4, 6};
+    string s = "1101010010011011100";
 
-    sort(a.begin(),a.end());
+    int n = count(s.begin(),s.end(),'1');
 
-    for(int n : a){
-        cout << n << " ";
-    }
+    cout << n << "\n;";
 }
