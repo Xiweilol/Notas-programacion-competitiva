@@ -13,12 +13,19 @@ int main(){
     while(t--){
         string s; cin >> s;
 
-        int a = s[0] -'0';
-        int b = s[1] -'0';
-        int c = s[2] -'0';
-        int d = s[3] -'0';
+        vector<int> d(4);
+        for (int i = 0; i < 4; i++) {
+            d[i] = s[i] - '0';
+            if (d[i] == 0) d[i] = 10; 
+        }
 
-        cout << abs(a-1) + abs(b-a) + abs(c-b) + abs(d-c) << "\n";
+        int ans = 4; 
+        ans += abs(d[0] - 1);
+        ans += abs(d[1] - d[0]);
+        ans += abs(d[2] - d[1]);
+        ans += abs(d[3] - d[2]);
+
+        cout << ans << "\n";
     }
 
     return 0;
