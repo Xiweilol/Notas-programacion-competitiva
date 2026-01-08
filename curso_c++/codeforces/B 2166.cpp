@@ -13,7 +13,8 @@ int main(){
     while(t--){
         ll a,b,n; cin >> a >> b >> n;
 
-        //cuando
+        //cuando el tamaño de cada ventana minima es menor o igual al longitud de tu pantalla
+        // entonces siempre puedes hacer un movimineto
         if(n* b <= a || b == a){
             cout << 1 <<"\n";
         } else{
