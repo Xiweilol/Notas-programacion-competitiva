@@ -1,11 +1,10 @@
 #include <iostream>
+#include <cstdint>
 typedef long long ll;
 using namespace std;
 int main(void)
 { 
-   int com = 0;
+   int64_t lol = 998244353998244352;
 
-   com = 0^1^8;
-   com ^= com;
-   cout << com;
+   cout << lol / 4 << " " <<lol / 6;
 }
