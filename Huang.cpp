@@ -1,13 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdint>
 using namespace std;
 
 int main() {
 
-    string s = "1101010010011011100";
+    int64_t a = 10000000000;
+    int64_t b = 987654321;
 
-    int n = count(s.begin(),s.end(),'1');
 
-    cout << n << "\n;";
+
+    cout << a - b << "\n";
 }
