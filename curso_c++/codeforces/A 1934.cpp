@@ -21,7 +21,7 @@ int main(){
 
         sort(a.begin(),a.end());
 
-        cout << 2 *(a[n-1] + a[n-2]) + 2 * (a[0] + a[1]) << "\n";
+        cout << 2 *(a[n-1] + a[n-2]) - 2 * (a[0] + a[1]) << "\n";
     }
     
 
