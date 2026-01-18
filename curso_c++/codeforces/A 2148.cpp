@@ -8,11 +8,11 @@ int main(){
     int t; cin >> t;
 
     while(t--){
-        short x,n; cin >> x >> n;
+        int x,n; cin >> x >> n;
 
         if(n % 2 == 0){
             cout << 0 << "\n";
-        } else {
+        } else{
             cout << x << "\n";
         }
     }
