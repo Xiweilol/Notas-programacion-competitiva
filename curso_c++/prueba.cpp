@@ -9,6 +9,5 @@ int main(void)
 { 
 
    
-   cout << 17 % 6 << "\n";
-
+   cout << 21 % 12 << "\n";
 }
