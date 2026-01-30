@@ -15,35 +15,24 @@ int main(){
         int n; cin >> n;
 
         vector <string> a(n);
+        vector <int> counts;
 
         for(int i = 0; i < n; i++){
             cin >> a[i];
         }
 
-        int len = 0;
-        bool square = true;
-        bool check = false;
-    
-        for(int i = 0; i < n; i++){
-            int temp = 0;
-            for(int j = 0; j < n; j++){
-                if(a[i][j] == '1'){
-                    temp++;
-                    check = true;
-                }
+        for(int i = 0; i < n; i++) {
+            int row_ones = 0;
+            for(char c : a[i]) {
+                if(c == '1') row_ones++;
             }
-
-            if(check && len != 0){
-                if(len != temp){
-                    square = false;
-                    break;
-                }
-            } else{
-                len = temp;
+            
+            if(row_ones > 0) {
+                counts.push_back(row_ones);
             }
-        }
+        }        
 
-        if(square){
+        if(counts[0] == counts[1]){
             cout << "SQUARE\n";
         } else{
             cout << "TRIANGLE\n";
