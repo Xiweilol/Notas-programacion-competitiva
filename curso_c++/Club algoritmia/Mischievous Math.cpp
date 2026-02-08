@@ -9,8 +9,6 @@ int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t; cin >> t;
-    while(t--){
         int d; cin >> d;
 
         if(d >= 10){
@@ -19,7 +17,7 @@ int main(){
             cout << 79 << " " << 90 << " " << 100 << "\n";
         }
 
-    }
+    
 
     return 0;
 }
