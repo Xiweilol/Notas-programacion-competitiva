@@ -8,6 +8,7 @@ using namespace std;
 int main(void)
 { 
 
-   
-   cout << 12345 - (12345 % 7) + 5 << "\n";
+   string a = "200";
+   string b = "1000";
+   cout << (a >= b ? "Yes" : "No") << "\n";
 }
