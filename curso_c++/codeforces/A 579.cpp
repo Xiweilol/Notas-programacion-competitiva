@@ -9,23 +9,19 @@ int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    vector <ll> guar;
-
-    for(int i = 0; i <= 30; i++){
-        guar.push_back(1<<i);
-    }
-
+    /*Cada bacteria  que agregamos es una potencia de dos
+    la respuesta es contar los unos de su representacion binaria*/
 
     int x; cin >> x;
+    int count = 0;
 
-    int val = 0;
-    for(int i = 0; i < 30; i++){
-        if(guar[i] <= x){
-            val = guar[i];
-        }
+    while(x > 0){
+        //revisa la ultima posicion del bit
+        count += x & 1;
+        //dividiendo entre 2, podemos decir que qutio un uno al final si es 1;
+        x >>= 1;
     }
 
-    cout << (val == x ? 1 : x - val + 1) << "\n";
-
+    cout << count << "\n";
     return 0;
 }
