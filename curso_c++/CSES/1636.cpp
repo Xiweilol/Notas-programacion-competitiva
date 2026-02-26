@@ -18,6 +18,7 @@ const ll mod = 1e9 + 7;
 
 //     vis[i][used] = true;
 
+        //aqui toma la moneda que estamos usando ya o la moneda que sigue
 //     memo[i][used] = dp(i + arr[used], used) + dp(i, used + 1);
 
 //     if(memo[i][used] >= mod){
@@ -30,7 +31,7 @@ const ll mod = 1e9 + 7;
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    
     //sort(arr ,arr + n);
     //cout << dp(0,0) << "\n";
 
