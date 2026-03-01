@@ -15,44 +15,24 @@ int main(){
         ll s,k,m;
         cin >> s >> k >> m;
 
-        //cuando se va y no lo puede voltear
-        if(k > m && k > s && s <= m){
-            cout << 0 << "\n";
-            continue;
-        }
-
-        if(s > k && m > k){
-            int restante = m / k;
-            int modu = m % k;
-            int rrr = 0;
-            if(restante & 1){
-                rrr = k;
+        int ans = 0;
+        if(s > k){
+            m %=  2 * k; 
+            if( k > m && m >= 0){
+                ans = s - m;
             } else {
-                rrr = s;
+                ans = 2 * k - m;
             }
-            cout << abs(rrr - modu) << "\n";
-            continue;
-        }  else if(s > k && m < k){
-            cout << abs(s - m) << "\n";
-            continue;
-        }  else if(s > k && m == k){
-            cout << s << "\n";
-            continue;
+        } else {
+            m %= k;
+            if(s > m && m >= 0){
+                ans = s - m;
+            } else {
+                ans = 0;
+            }
         }
-
-        if(s <= k && m > k){
-            int modu = m % k;
-
-            cout << abs(modu - s) << "\n";
-            continue;
-        } else if(m < k){
-            cout << abs(s-m) << "\n";
-            continue;
-        }
-
-
-
         
+        cout << ans << "\n";
     }
 
     return 0;
