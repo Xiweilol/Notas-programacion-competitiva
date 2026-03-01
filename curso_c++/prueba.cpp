@@ -10,4 +10,6 @@ int main(void)
 
    //string a = (char)('.' + 'Eso Eso');
    //cout << a << "\n";
+
+   cout << 1000 / 10 << "\n";
 }
