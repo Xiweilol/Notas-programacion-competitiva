@@ -13,7 +13,7 @@ int n,m;
 int a[maxn];
 int memo[maxn][102];
 
-vector<vector<bool>> visito(maxn,vector <bool>(102,false));
+bool visito[maxn][102];
 
 ll dp(int i, int k){
     //por si es una k invalida
@@ -27,7 +27,7 @@ ll dp(int i, int k){
     //verificar si es 0
     if(a[i] != 0){
         if(abs(a[i] - k) <= 1){
-            memo[i][k] += dp(i+1,a[i]);
+            memo[i][k] = dp(i+1,a[i]) % mod;
         }
         //simplemente lo avanzamos y no sumamos nada
     } else{
@@ -47,7 +47,7 @@ int main(){
     ll ans = 0;
     // si el primer oes diferente de 0, solo pasamos 
     if(a[0] != 0){
-        ans += dp(1,a[0]);
+        ans += dp(1,a[0]) % mod;
     } else {
         //inicia en 0
         for(int i = 1; i <= m; i++){
@@ -55,5 +55,5 @@ int main(){
         }
     }
 
-    cout << ans << "\n";
+    cout << ans % mod << "\n";
 }
