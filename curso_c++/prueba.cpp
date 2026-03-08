@@ -4,15 +4,40 @@
 #include <map>
 #include <algorithm>
 #include <set>
-
-typedef long long ll;
+#include <string>
 using namespace std;
-int main(void)
-{ 
 
-   //string a = (char)('.' + 'Eso Eso');
-   //cout << a << "\n";
+typedef struct NODO *nodito;
+//parametro por valor
+int lol(int x, int y){
+   return x + y;
+}
 
-   set <int> S = {1,2,3};
-   cout <<  << "\n";
+struct NODO{
+   string miembro;
+   int edad;
+   float altura;
+};
+
+
+int main(){
+   struct NODO p1;
+   struct NODO *ptr;
+
+   
+   
+   
+
+   //bloque de memoria
+   int arr[5] = {1,20,3,44,50};
+
+   int ps = 10;
+   int *p = &ps;
+   int **pt = &p;
+   //direccion de un apuntador
+   cout << &p << "\n";
+
+   //apuntador a apuntador
+   cout << pt << "\n";
+
 }
