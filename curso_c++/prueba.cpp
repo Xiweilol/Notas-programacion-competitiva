@@ -21,23 +21,5 @@ struct NODO{
 
 
 int main(){
-   struct NODO p1;
-   struct NODO *ptr;
-
-   
-   
-   
-
-   //bloque de memoria
-   int arr[5] = {1,20,3,44,50};
-
-   int ps = 10;
-   int *p = &ps;
-   int **pt = &p;
-   //direccion de un apuntador
-   cout << &p << "\n";
-
-   //apuntador a apuntador
-   cout << pt << "\n";
-
+   cout << "2017" + '1' << "\n";
 }
