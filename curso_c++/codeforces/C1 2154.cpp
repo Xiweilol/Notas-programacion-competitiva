@@ -8,6 +8,7 @@ using namespace std;
 const int maxn = 2e5 + 5;
 
 vector <int> primos;
+
 void generarPrimo(){
     for(int i = 2; i <= maxn; i++){
         bool ok = true;
