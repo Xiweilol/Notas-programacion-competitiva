@@ -21,5 +21,5 @@ struct NODO{
 
 
 int main(){
-   cout << "2017" + '1' << "\n";
+   cout << 'c' - 'a' + 1 << "\n";
 }
