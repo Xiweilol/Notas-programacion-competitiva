@@ -18,11 +18,12 @@ int main(){
         vector <int> ans(n+1,0);
         
         ans[1] = 1;
-
+        int curr = 1;
         for(int i = 2; i <= n; i++){
             ll diff = b[i] - b[i-1];
             if(diff == i){
-                ans[i] = ans[i-1] + 1;
+                curr++;
+                ans[i] = curr;
             } else {
                 ans[i] = ans[i-diff];
             }
