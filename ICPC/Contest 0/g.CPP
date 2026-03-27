@@ -26,7 +26,7 @@ bool dp(int cntChip, int turno){
 
     for(int x = 1; x <= min(turno,cntChip); x++){
         //si pudo llegar al final gana regresara verdadero
-        if(dp(cntChip-x,turno+1)){
+        if(!dp(cntChip-x,turno+1)){
             lol = true;
             break;
         }
