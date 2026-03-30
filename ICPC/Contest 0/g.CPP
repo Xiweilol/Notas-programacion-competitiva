@@ -14,27 +14,27 @@ bool memo[maxn][maxn];
 
 const ll mod = 1000000000 + 7;
 
-bool dp(int cntChip, int turno){
-    //si agarra el ultimo, significa que gano
-    if(cntChip == 0) return false;
+// bool dp(int cntChip, int turno){
+//     //si agarra el ultimo, significa que gano
+//     if(cntChip == 0) return false;
 
-    if(visito[cntChip][turno]) return memo[cntChip][turno];
+//     if(visito[cntChip][turno]) return memo[cntChip][turno];
 
-    visito[cntChip][turno] = true;
+//     visito[cntChip][turno] = true;
 
-    bool lol = false;
+//     bool lol = false;
 
-    for(int x = 1; x <= min(turno,cntChip); x++){
-        //si pudo llegar al final gana regresara verdadero
-        if(!dp(cntChip-x,turno+1)){
-            lol = true;
-            break;
-        }
-    }
+//     for(int x = 1; x <= min(turno,cntChip); x++){
+//         //si pudo llegar al final gana regresara verdadero
+//         if(!dp(cntChip-x,turno+1)){
+//             lol = true;
+//             break;
+//         }
+//     }
 
-    return memo[cntChip][turno] = lol;
+//     return memo[cntChip][turno] = lol;
 
-}
+// }
 
 int main(){
     ios_base::sync_with_stdio(0);
@@ -42,7 +42,15 @@ int main(){
 
     int n; cin >> n;
 
-    cout << (dp(n,1) ? "Jane" : "John") << "\n";
+    //caso base, todo los turnos, llega al cero, pierde
+    for(int turno = 1; turno <= n; turno++){
+        memo[0][turno] = false;
+    }
+
+    
+
+
+
 
     return 0;
 }
