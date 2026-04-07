@@ -1,15 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cstdint>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-
-    int64_t a = 10000000000;
-    int64_t b = 987654321;
-
+    
+    long long a = LONG_LONG_MAX;
 
 
-    cout << a - b << "\n";
+    cout << a << "\n";
 }

@@ -23,6 +23,13 @@ int main(){
             cout << -1 << "\n";
             continue;
         }
+        cout << "3\n";
+        if(k & 1){
+            
+            cout << 1 << " " << k-1 << " " << k+2 << "\n";
+        } else{
+            cout << 1 << " " << k << " " << k+1 << "\n";
+        }
 
         
     }
