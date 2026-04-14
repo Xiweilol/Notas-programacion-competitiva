@@ -17,33 +17,39 @@ int main(){
         vector<pair<int,int>> ans;
 
         int l = n;
-        int r = n -1;
+        int r = n;
         int len = 0;
 
         int largo = n;
 
         while(l >= 1 && r >= 1){
-            //por si es el ultimo 0 y que no es secuencia
-            if(l == 1 && r == 1 && a[l] == 0){
-                ans.push_back({1,2});
-                largo--;
-                break;
-            }
-
-            if(l == n && a[r] != 0 && a[l] == 0){
-                ans.push_back({n-1,n});
-                largo--;
-                l--;
-                r--;
-                continue;
-            }
+ 
             //si topa un cero, vamos avanzar la r, hasta tocar uno diferente con la r tenemos que filtrar el caso de que es el unltimo 0 de la cadena y que es
             if(a[l] == 0){
                 while(r >= 1 && a[r] == 0 ){
                     len++;
                     r--;
                 }
-                //una vez que la cadena ya no es de 0, rompemo
+                //si la longitud del 0 es 1, podemos agarrar uno que esta enfrente o que este atras
+                if(len == 1){
+                    //si no es el primer elemento, siempre agarramos de frente
+                    if(r >= 1){
+                        largo--;
+                        ans.push_back({r,l});
+                        l = r;
+                        len = 0;
+                    } else if(r == 0) {
+                        largo--;
+                        ans.push_back({r+1,l+1});
+                        l = r;
+                        len = 0;
+                    }
+                    continue;
+                }
+                if(len == n){
+                    largo = -1;
+                    break;
+                }
                 largo -= len -1;
                 ans.push_back({r+1,l});
                 l = r;
@@ -53,6 +59,7 @@ int main(){
                 r--;
             }
         }
+        //cout << largo << "\n";
         //cuando todos son iguales basta con checar estos, sea par o impar
         if(largo == -1){
             cout << 3 << "\n";
@@ -62,7 +69,7 @@ int main(){
             
             continue;
         }
-        //
+        // 
         if(largo != 1){
             cout << ans.size()+1 << "\n";
 
