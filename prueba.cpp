@@ -10,13 +10,11 @@ int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    deque <int> a= {};
-    
+    ll ans = 1000000 * 4 - 654321;
+
+    cout << 1000000000000000000 / an << "\n";
     
 
-    for(int n : a){
-        cout << n << " ";
-    }
 
     return 0;
 }
