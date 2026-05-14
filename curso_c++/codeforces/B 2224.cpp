@@ -39,7 +39,7 @@ int main(){
 
         ll siono = 0;
         
-        for(int i = 0; i < len-1;i++){
+        for(int i = 0; i < len;i++){
             aaaa.insert(nose[i]);
             while(aaaa.count(mex)) mex++;
 
