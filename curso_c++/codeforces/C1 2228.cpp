@@ -3,23 +3,27 @@
 // No puedo con rate 1000 :( 
 #include <bits/stdc++.h>
 typedef long long ll;
+
 using namespace std;
 
 const ll mod = 1000000000 + 7;
-char d1;
-char d2;
-ll ans;
-ll a;
-void generar(int pos,int len,string s){
+int d1;
+int d2;
+unsigned long long ans;
+unsigned long long a;
+void generar(int pos,int len,unsigned long long s){
     //ya generamos un numero con digito que queremos
     if(pos == len){
-        ll b = stoll(s);
-        ans = min(ans,abs(a-b));
+        if(a > s){
+            ans = min(ans,a-s);
+        } else {
+            ans = min(ans,s-a);
+        }
         return;
     }
 
-    generar(pos+1,len,s+d1);
-    generar(pos+1,len,s+d2);
+    generar(pos+1,len,s * 10 + d1);
+    generar(pos+1,len,s * 10 + d2);
 
 }
 int main(){
@@ -38,7 +42,7 @@ int main(){
         int largo = to_string(a).size();
         
         for(int i = max(1,largo-1); i <= largo+1; i++){
-            generar(0,i,"");
+            generar(0,i,0);
         }
 
         cout << ans << "\n";
