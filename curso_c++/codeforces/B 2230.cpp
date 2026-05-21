@@ -13,37 +13,49 @@ int main(){
     int t; cin >> t;
     while(t--){
         string s; cin >> s;
+      
 
-        map <char,int> freq;
-
-        int ans = 0;
+        int acu = 0;
+        int acu2 = 0;
+        int cnt = 0;
+        //solo para los 2's
         for(int i = s.size()-1; i >= 0; i--){
 
-            freq[s[i]]++;
-            if(s[i] == '1'){
-                if(freq['2'] >= 2){
-                    ans++;
-                    freq[s[i]]--;
-                }else if(freq['2'] == 1){
-                    ans++;
-                    freq[s[i]]--;
-                }
-
-            } else if(s[i] == '3'){
-                if(freq['2'] >= 2){
-                    ans++;
-                    freq[s[i]]--;
-                }else if(freq['2'] == 1){
-                    ans++;
-                    freq[s[i]]--;
-                }
-            } else if(s[i] =='4'){
-                ans++;
+            if(s[i] == '2'){
+                acu2++;
             }
- 
+
+            if(s[i] == '4'){
+                cnt++;
+            }
+        }
+        int ans = INT_MAX;
+        
+        int temp = acu2;
+        //para los 1 y 3;
+        
+        for(int i = 0; i < s.size();i++){
+            
+            if(s[i] == '2'){
+                acu2--;
+                continue;
+            }
+            if(s[i] == '1' || s[i] == '3'){
+                acu++;
+                //vamos a intentar dejar este 1
+                ans = min(ans,(acu-1) + acu2);
+            }
+
         }
 
-        cout << ans << "\n";
+        //si no dejo ningun 1 o 3
+
+        ans = min({ans,acu,temp});
+
+        cout << ans + cnt << "\n";
+        
+
+
     }
 
     return 0;
