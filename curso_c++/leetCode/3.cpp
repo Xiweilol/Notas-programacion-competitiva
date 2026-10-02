@@ -7,34 +7,26 @@ public:
     int lengthOfLongestSubstring(string s) {
         
 
-        int mx = INT_MIN;
+        int mx = 0;
         int actual = 0;
 
-        int l = 0, r = l;
+        int l = 0;
         int len = s.length();
         //contador
         map <char,int> freq;
         //mientra no excede el tamaño de la cadena el puntero derecha
-        while(r < len){
+        for(int i = 0; i < len; i++){
+            freq[s[i]]++;
 
-            //mientra que sigue existiendo duplicado
-            while(freq[s[r]] > 1){
-                //eliminando elementos que estan mas a la izquierda
+            while(freq[s[i]] > 1){
+                if(actual > 0) actual--;
                 freq[s[l]]--;
-                //decrementar
-                actual--;
-                //incrementar
                 l++;
             }
-            //quitar
-            freq[s[r]]++;
             actual++;
             mx = max(mx,actual);
-            r++;
-
         }
-
-        return max(mx,actual);
+        return mx;
 
     }
 };
