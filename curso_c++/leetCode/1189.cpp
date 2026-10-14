@@ -17,12 +17,13 @@ public:
         while(ok){
             int cont = 0;
             for(int i = 0; i < fin.length();i++){
-                freq[fin[i]]--;
-                cont++;
-                if(fin[i] != 'n' && freq[fin[i]] <= 0){
+                if(freq[fin[i]] <= 0){
                     ok = false;
                     break;
                 }
+                freq[fin[i]]--;
+                cont++;
+
             }
             if(ok && cont == fin.length()) ans++;
         }
