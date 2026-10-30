@@ -20,9 +20,11 @@ public:
                     pila.pop();
                     continue;
                 }
+            }else {
+                            //si no significa que es un nuevo elemento y que puedes meter asi nada mas con uno
+                pila.push({s[i],1});
             }
-            //si no significa que es un nuevo elemento y que puedes meter asi nada mas con uno
-            pila.push({s[i],1});
+
         }
 
         string ans = "";
